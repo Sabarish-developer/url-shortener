@@ -17,13 +17,13 @@ export const Header = () => {
     const user = true;
 
     return (
-        <nav className="p-4 flex justify-between items-center">
-            <Link to="/">
+        <nav className="p-4 flex justify-between items-center shadow-xs sticky top-0 bg-white">
+            <Link to="/" className="flex justify-start items-center">
                 <img src="public\url-shortener-logo.png" alt="logo" className="h-10 "/>
+                <div className="text-sm md:text-base lg:text-xl font-bold">
+                    Dwindle
+                </div>
             </Link>
-            <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
-                URL Shortener
-            </div>
             <div>
                 {   !user 
                     ?

@@ -10,7 +10,7 @@ export const AppLayout = () => {
                 <Outlet />
             </main>
             <div className="p-10 mt-10 text-center bg-gray-100">
-                Made with 🔥 by <span className='font-bold'>Sabarish-developer</span>
+                Made with 🔥 by <a className='font-bold underline' href="https://github.com/Sabarish-developer" target='_blank'>Sabarish-developer</a>
             </div>
         </div>
     )
