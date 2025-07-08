@@ -10,8 +10,11 @@ import {Input} from './ui/input';
 import {Button} from './ui/button';
 import { PulseLoader } from "react-spinners";
 import {Error} from '../components/error';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import * as Yup from 'yup';
+import {login} from '../db/apiAuth';
+import {useFetch} from '../hooks/useFetch';
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export const Login = () => {
 
@@ -21,6 +24,10 @@ export const Login = () => {
         password: ""
     });
 
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const longLink = searchParams.get("createNew");
+
     const handleInputChange = (e) => {
         const {name,value} = e.target;
         setFormData((prevState) => ({
@@ -28,6 +35,16 @@ export const Login = () => {
             [name]: value
         }));
     };
+
+    const {fn: fnLogin, data, error, loading} = useFetch(login, formData);
+
+    useEffect(()=>{
+
+        if(error===null && data){
+            navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
+        }
+
+    }, [error, data])
 
     const handleLogin = async () => {
 
@@ -40,6 +57,8 @@ export const Login = () => {
             });
 
             await schema.validate(formData, {abortEarly: false});  // abortEarly:false -> don't stop on first error get all errors
+            await fnLogin()                                        // Calling the login function from apiFetch using useFetch hook
+
         }catch(e){
             const newErrors = {};
 
@@ -56,6 +75,7 @@ export const Login = () => {
                 <CardHeader>
                     <CardTitle>Login</CardTitle>
                     <CardDescription>If you already have an account</CardDescription>
+                    {error && <Error message={error.message}/>}
                 </CardHeader>
                 <CardContent className='space-y-2'>
                     <div className="space-y-1">
@@ -68,8 +88,8 @@ export const Login = () => {
                     </div>
                 </CardContent>
                 <CardFooter>
-                    <Button onClick={handleLogin}>
-                        {true ? <PulseLoader size={10} color='#ffffff'/> : "Login"}
+                    <Button onClick={handleLogin} className='w-full cursor-pointer'>
+                        {loading ? <PulseLoader size={10} color='#ffffff'/> : "Login"}
                     </Button>
                 </CardFooter>
             </Card>

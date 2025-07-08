@@ -12,7 +12,7 @@ export const Auth = () => {
 
     return (
         <div className="flex flex-col items-center gap-10 mt-26">
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-3xl font-bold p-2 text-center">
                 {searchParams.get("createNew") ? "Hold up, let's login first!!!" : "Login / Signup"}
             </h1>
             <Tabs defaultValue="login" className="sm:w-[400px]">

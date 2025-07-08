@@ -4,7 +4,7 @@ export const useFetch = (cb, options={}) => {
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(null);
 
     const fn = async(...args) => {
         setLoading(true);
