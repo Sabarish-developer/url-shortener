@@ -1,4 +1,5 @@
 import {AppLayout} from "./layouts/app-layout";
+import { UrlProvider } from "./context";
 
 import {Landing} from "./pages/landing";
 import {Auth} from "./pages/auth";
@@ -25,7 +26,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <UrlProvider>
+        <RouterProvider router={router} />
+      </UrlProvider>
     </>
   )
 }

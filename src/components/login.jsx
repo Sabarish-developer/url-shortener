@@ -15,6 +15,7 @@ import * as Yup from 'yup';
 import {login} from '../db/apiAuth';
 import {useFetch} from '../hooks/useFetch';
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { UrlState } from "@/context";
 
 export const Login = () => {
 
@@ -37,10 +38,12 @@ export const Login = () => {
     };
 
     const {fn: fnLogin, data, error, loading} = useFetch(login, formData);
+    const {fetchUser} = UrlState();
 
     useEffect(()=>{
 
         if(error===null && data){
+            fetchUser();
             navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
         }
 
