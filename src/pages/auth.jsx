@@ -1,8 +1,8 @@
 import {Login} from "../components/login";
 import {Signup} from "../components/signup";
 
-import {useEffect, useNavigate} from 'react';
-import { useSearchParams } from "react-router-dom";
+import {useEffect} from 'react';
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { UrlState } from "@/context";

@@ -13,7 +13,7 @@ export const RequireAuth = ({children}) => {
     }, [isAuthenticated, loading]);
 
     if(loading){
-        return <BarLoader className='w-full' color='#ffffff' />
+        return <BarLoader width={"100%"} color='#ffffff' />
     }
 
     if(isAuthenticated){

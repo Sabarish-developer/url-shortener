@@ -10,13 +10,19 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import {LogOut, LinkIcon} from 'lucide-react';
+import {logout} from '../db/apiAuth';
+import { useFetch } from "@/hooks/useFetch";
+import { UrlState } from "@/context";
+import { BarLoader } from "react-spinners";
 
 export const Header = () => {
 
     const navigate = useNavigate();
-    const user = true;
+    const {loading, fn: fnLogout} = useFetch(logout);
+    const {user, fetchUser} = UrlState();
 
     return (
+        <>
         <nav className="p-4 flex justify-between items-center shadow-xs sticky top-0 bg-white">
             <Link to="/" className="flex justify-start items-center">
                 <img src="public\url-shortener-logo.png" alt="logo" className="h-10 "/>
@@ -35,17 +41,24 @@ export const Header = () => {
                         <DropdownMenu>
                             <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
                                 <Avatar >
-                                    <AvatarImage src="https://github.com/shadcn.png" />
-                                    <AvatarFallback>CN</AvatarFallback>
+                                    <AvatarImage src={user?.user_metadata?.profile_pic} />
+                                    <AvatarFallback>User</AvatarFallback>
                                 </Avatar>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                            <DropdownMenuLabel>Sabarish-developer</DropdownMenuLabel>
+                            <DropdownMenuLabel>{user?.user_metadata?.name}</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem >
                                 <LinkIcon className="h-4 w-4 mr-2"/> My Links
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="hover:text-red-400">
+                            <DropdownMenuItem className="hover:text-red-400"
+                                onClick={()=>{
+                                    fnLogout().then(()=>{
+                                        fetchUser();
+                                        navigate("/");
+                                    });
+                                }}
+                            >
                                 <LogOut className="h-4 w-4 mr-2 text-red-400" /> <span className="text-red-400">Logout</span>
                             </DropdownMenuItem>
                             </DropdownMenuContent>
@@ -54,5 +67,7 @@ export const Header = () => {
                 }
             </div>
         </nav>
+        {loading && <BarLoader width={"100%"} color="#ffffff" />}
+        </>
     )
 }

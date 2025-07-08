@@ -41,3 +41,8 @@ export const signup = async({name, email, password, profile_pic}) => {
 
     return data;
 }
+
+export const logout = async() => {
+    const {error} = await supabase.auth.signOut();
+    if(error) throw new Error(error.message);
+}
