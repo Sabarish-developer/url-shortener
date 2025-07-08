@@ -1,5 +1,6 @@
 import {AppLayout} from "./layouts/app-layout";
 import { UrlProvider } from "./context";
+import { RequireAuth } from "./components/requireAuth";
 
 import {Landing} from "./pages/landing";
 import {Auth} from "./pages/auth";
@@ -16,8 +17,8 @@ const router = createBrowserRouter([{
   children: [
     {path: "/", element: <Landing />},
     {path: "/auth", element: <Auth />},
-    {path: "/dashboard", element: <Dashboard />},
-    {path: "/link/:id", element: <Link />},
+    {path: "/dashboard", element: <RequireAuth><Dashboard /></RequireAuth>},
+    {path: "/link/:id", element: <RequireAuth><Link /></RequireAuth>},
     {path: "/:id", element: <RedirectLink />}
   ]
 }])
