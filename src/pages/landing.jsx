@@ -36,7 +36,7 @@ export const Landing = () => {
                     Shorten
                 </Button>
             </form>
-            <img src="public\url-shortener-landing.jpg" alt="url-shortener image" 
+            <img src="url-shortener-landing.jpg" alt="url-shortener image" 
                 className='w-full my-11 p-2 md:px-11 sm:h-[300px] sm:w-[600px] md:h-[400px] md:w-[800px]'>
             </img>
             <Accordion type="multiple" collapsible className="px-2 md:px-11 w-full">

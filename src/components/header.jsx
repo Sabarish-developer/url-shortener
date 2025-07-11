@@ -25,7 +25,7 @@ export const Header = () => {
         <>
         <nav className="p-4 flex justify-between items-center shadow-xs sticky top-0 bg-white">
             <Link to="/" className="flex justify-start items-center">
-                <img src="public\url-shortener-logo.png" alt="logo" className="h-10 "/>
+                <img src="url-shortener-logo.png" alt="logo" className="h-10 "/>
                 <div className="text-sm md:text-base lg:text-xl font-bold">
                     Dwindle
                 </div>
