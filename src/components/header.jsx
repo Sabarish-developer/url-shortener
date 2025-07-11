@@ -49,7 +49,9 @@ export const Header = () => {
                             <DropdownMenuLabel>{user?.user_metadata?.name}</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem >
-                                <LinkIcon className="h-4 w-4 mr-2"/> My Links
+                                <Link to="/dashboard" className="flex">
+                                    <LinkIcon className="h-4 w-4 mr-2"/> My Links
+                                </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem className="hover:text-red-400"
                                 onClick={()=>{
@@ -67,7 +69,7 @@ export const Header = () => {
                 }
             </div>
         </nav>
-        {loading && <BarLoader width={"100%"} color="#ffffff" />}
+        {loading && <BarLoader width={"100%"} color="#000000" />}
         </>
     )
 }
