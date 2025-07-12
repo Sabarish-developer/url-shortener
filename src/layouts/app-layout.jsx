@@ -1,10 +1,12 @@
 import {Outlet} from 'react-router-dom';
 import {Header} from "../components/header";
+import {Toaster} from 'react-hot-toast'
 
 export const AppLayout = () => {
 
     return (
         <div>
+            <Toaster position='top-center' reverseOrder={false} />
             <main className='min-h-screen'>
                 <Header />
                 <Outlet />
