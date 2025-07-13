@@ -73,13 +73,13 @@ export const LinkCard = ({url=[], fetchUrls}) => {
                 </span>
             </Link>
             <div className='flex gap-2'>
-                <Button className='cursor-pointer' onClick = {handleCopy}>
+                <Button className='cursor-pointer' onClick = {handleCopy} title='Copy link'>
                     {copied ? <Check /> : <Copy />}
                 </Button>
-                <Button variant="secondary" className='cursor-pointer' onClick={downloadImage}>
+                <Button variant="secondary" className='cursor-pointer' onClick={downloadImage} title='Download'>
                     <Download />
                 </Button>
-                <Button variant="destructive" className='cursor-pointer' disabled={loadingDelete} onClick={handleDelete}>
+                <Button variant="destructive" className='cursor-pointer' disabled={loadingDelete} onClick={handleDelete} title='Delete'>
                     {loadingDelete ? <BeatLoader size-={5} color="#ffffff"/> : <Trash />}
                 </Button>
             </div>
