@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import { BarLoader } from "react-spinners";
 import { LinkIcon, Copy, Download, Trash, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LocationStats } from "@/components/location-stats";
+import { DeviceStats } from "@/components/device-stats";
 import {
   Card,
   CardAction,
@@ -35,7 +37,10 @@ export const Link = () => {
         if(!error && loading===false) fnStats();
     }, [loading, error]);
 
-    //if(error) navigate("/dashboard");
+    if(error){
+        navigate("/dashboard");
+        toast.error("Error loading URL");
+    }
 
     let link = "";
     if(url){
@@ -95,8 +100,8 @@ export const Link = () => {
                 (loading || loadingStats) && 
                 (<BarLoader className="mb-4" width={"100%"} color="#000000" />)
             }
-            <div className="flex flex-col sm:flex-row">
-            <div className="flex flex-col items-start rounded-xl gap-8 p-4 sm:w-2/5 border ml-2">
+            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col items-start rounded-xl gap-8 p-4 md:w-2/5 border ml-2">
                 <span className="text-4xl sm:text-5xl font-bold hover:underline cursor-pointer">
                     {url?.title}
                 </span>
@@ -128,7 +133,7 @@ export const Link = () => {
                 />
             </div>
 
-            <Card className="w-3/5">
+            <Card className="md:w-3/5">
                 <CardHeader>
                     <CardTitle className='text-4xl font-bold'>Statistics</CardTitle>
                 </CardHeader>
@@ -138,15 +143,14 @@ export const Link = () => {
                     <CardContent>
                         <Card>
                             <CardHeader>
-                                <CardTitle>Total clicks</CardTitle>
+                                <CardTitle className='text-xl'>Total clicks : <span>{stats.length}</span></CardTitle>
                             </CardHeader>
-                            <CardContent>
-                                <p>{stats?.length}</p>
-                            </CardContent>
                         </Card>
 
-                        <CardTitle>Location Stats</CardTitle>
-                        <CardTitle>Device Stats</CardTitle>
+                        <CardTitle className='m-3 text-lg'>Location Stats</CardTitle>
+                        <LocationStats stats={stats} />
+                        <CardTitle className='m-3 text-lg'>Device Stats</CardTitle>
+                        <DeviceStats stats={stats} />
                     </CardContent>
                     :
                     <CardContent>
