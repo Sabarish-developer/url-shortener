@@ -34,7 +34,7 @@ export const Header = () => {
                 {   !user 
                     ?
                         <Button onClick={()=>(navigate("/auth"))} className='cursor-pointer'>
-                            Login
+                            Login/Signup
                         </Button> 
                     : 
                     (
