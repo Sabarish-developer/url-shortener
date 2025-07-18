@@ -80,7 +80,7 @@ export const LinkCard = ({url=[], fetchUrls}) => {
                     <Download />
                 </Button>
                 <Button variant="destructive" className='cursor-pointer' disabled={loadingDelete} onClick={handleDelete} title='Delete'>
-                    {loadingDelete ? <BeatLoader size-={5} color="#ffffff"/> : <Trash />}
+                    {loadingDelete ? <BeatLoader size={5} color="#ffffff"/> : <Trash />}
                 </Button>
             </div>
         </div>

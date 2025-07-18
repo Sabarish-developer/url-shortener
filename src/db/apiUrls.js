@@ -53,7 +53,7 @@ export const getLongUrl = async(id) => {
     return data;
 } 
 
-export const getUrl = async({id, url_id}) => {
+export const getUrl = async({id, user_id}) => {
 
     const {data, error} = await supabase
         .from("urls")
