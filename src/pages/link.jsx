@@ -102,13 +102,17 @@ export const Link = () => {
             }
             <div className="flex flex-col md:flex-row">
             <div className="flex flex-col items-start rounded-xl gap-8 p-4 md:w-2/5 border ml-2">
-                <span className="text-4xl sm:text-5xl font-bold hover:underline cursor-pointer">
+                <span className="w-full break-all text-4xl md:text-5xl font-bold hover:underline cursor-pointer">
                     {url?.title}
                 </span>
-                <a href={`https://dwindle.netlify.app/${link}`} target="_blank" className="text-2xl sm:text-3xl font-bold hover:underline cursor-pointer">
+                <a href={`https://dwindle.netlify.app/${link}`} 
+                   target="_blank" 
+                   className="w-full break-all text-2xl md:text-3xl font-bold hover:underline cursor-pointer">
                     {`https://dwindle.netlify.app/${link}`}
                 </a>
-                <a href={url?.original_url} target="_blank" className="flex items-center gap-1 hover:underline cursor-pointer">
+                <a href={url?.original_url} 
+                   target="_blank" 
+                   className="flex w-full break-all items-center gap-1 hover:underline cursor-pointer">
                     <LinkIcon className="p-1" />
                     {url?.original_url}
                 </a>
