@@ -1,12 +1,44 @@
-# React + Vite
+# 🔗 Dwindle - A Modern URL Shortener
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Dwindle** is a sleek and minimal URL shortener built with modern web technologies. It allows users to shrink long URLs into compact links for easy sharing, with simple tracking and clean design.
 
-Currently, two official plugins are available:
+## 🌐 Live Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Try Dwindle Live](https://dwindle.netlify.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 🔗 Shorten any long URL instantly
+- 📋 Copy-to-clipboard functionality
+- 🔄 Redirects to original URL via unique shortcode
+- 📊 **Analytics Dashboard** showing:
+  - View count per link
+  - Device-based stats (Desktop, Mobile, Tablet)
+  - Location-based stats (Country-level)
+- ✅ Validation to ensure only proper URLs are accepted
+- 🎨 Clean UI with responsive design using Tailwind & Shadcn
+- 🔐 Backendless architecture with Supabase for DB and APIs
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend**: React + Vite  
+- **Styling**: Tailwind CSS + Shadcn UI  
+- **Backend-as-a-Service**: Supabase  
+- **Deployment**: Netlify
+
+---
+
+## 🧠 How It Works
+
+1. Paste your long URL into the input.
+2. Click "Shorten" to generate a unique short link.
+3. Copy and share the new URL.
+4. Every time the short link is visited, view count and analytics (device, location) are tracked and updated in Supabase.
+
+---
+
+💻 Made with 🔥 by [Sabarish-developer](https://github.com/Sabarish-developer)
