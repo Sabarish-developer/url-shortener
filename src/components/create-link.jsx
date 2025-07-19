@@ -17,6 +17,7 @@ import { createUrl } from "@/db/apiUrls";
 import { useFetch } from "@/hooks/useFetch";
 import { QRCode } from "react-qrcode-logo";
 import { Error } from "./error";
+import { BeatLoader } from "react-spinners";
 
 export const CreateLink = () => {
 
